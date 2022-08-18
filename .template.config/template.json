@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "James Mason",
+    "classifications": [ "TDD Kata","Kata" ], 
+    "name": "Kata template",
+    "identity": "JamesMason.KataTemplate",         
+    "shortName": "Kata",
+    "tags": {
+      "language": "C#",
+      "type":"project"
+    },
+    "sourceName": "KataTemplate",
+    "preferNameDirectory": true,
+    "symbols":{
+      "includetest": {
+          "type": "parameter",
+          "datatype": "bool",
+          "defaultValue": "true"
+      },
+      "skipRestore": {
+        "type": "parameter",
+        "datatype": "bool",
+        "description": "If specified, skips the automatic restore of the project on create.",
+        "defaultValue": "false"
+    }
+    },
+    "sources":[{
+      "modifiers": [{
+        "condition": "(!includetest)",
+        "exclude": [ "KataTemplate.Tests/KataTemplate.Tests/**/*"]
+        }
+      ]
+    }],
+    "postActions": [
+        {
+          "condition": "(!skipRestore)",
+          "description": "Restore NuGet packages required by this project.",
+          "manualInstructions": [
+            { "text": "Run 'dotnet restore'" }
+          ],
+          "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+          "continueOnError": true
+        }],
+    "primaryOutputs": [{"path": "KataTemplate.Tests/KataTemplate.Tests.csproj"}]
+}
