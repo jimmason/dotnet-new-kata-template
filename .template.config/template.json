@@ -27,7 +27,7 @@
     "sources":[{
       "modifiers": [{
         "condition": "(!includetest)",
-        "exclude": [ "KataTemplate.Tests/KataTemplate.Tests/**/*"]
+        "exclude": [ "KataTemplate.Tests/KataTemplate.Tests/**/*", ".git"]
         }
       ]
     }],
